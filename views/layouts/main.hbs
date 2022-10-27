@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{title}}</title>
+        <link rel="stylesheet" href="/static/css/styles.css">
+    </head>
+<body>
+    <header class="header">
+        <nav>
+            <img src="../../static/images/logo.png" class="logo">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/catalog">Catalog</a></li>
+                {{#if hasUser}}
+                <li><a href="/search">Search</a></li>
+                <li><a href="/create">Create Offer</a></li>
+                <li><a href="/profile">Welcome: placeholder</a></li>
+                <li><a href="/auth/logout">Logout</a></li>
+                <li><a href="/card"><img src="../../static/images/card.png" alt="" class="card"></a></li>
+                {{else}}
+                <li><a href="/auth/login">Login</a></li>
+                <li><a href="/auth/register">Register</a></li>
+                {{/if}}
+            </ul>
+        </nav>
+    </header>
+    
+    {{#if error}}
+      <div class="errorContainer">
+        {{#each error}}
+          <p>{{this}}</p>
+        {{/each}}
+      </div>
+    {{/if}}
+    
+    {{{body}}}
+    
+    <footer>
+        <p>Bicycle.com created by Simeon Rudashki</p>
+    </footer>
+</body>
+</html>
