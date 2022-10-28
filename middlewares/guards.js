@@ -11,7 +11,7 @@ function hasUser() {
 function isGuest() {
     return (req , res , next) => {
         if(req.user != undefined) {
-           res.redirect('/auth/login');
+           res.redirect('/');
         } else {
            next();
         }

@@ -17,7 +17,7 @@
                 {{#if hasUser}}
                 <li><a href="/search">Search</a></li>
                 <li><a href="/create">Create Offer</a></li>
-                <li><a href="/profile">Welcome: placeholder</a></li>
+                <li><a href="/profile">Welcome: {{username}}</a></li>
                 <li><a href="/auth/logout">Logout</a></li>
                 <li><a href="/card"><img src="../../static/images/card.png" alt="" class="card"></a></li>
                 {{else}}
@@ -39,7 +39,7 @@
     {{{body}}}
     
     <footer>
-        <p>Bicycle.com created by Simeon Rudashki</p>
+        <p>{{footer}}</p>
     </footer>
 </body>
 </html>

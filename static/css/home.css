@@ -59,7 +59,7 @@ nav ul li a {
 }
 
 .content h1 span {
-    color: #ef1111;
+    color: rgba(70, 20, 158);
 }
 
 .content p {
@@ -70,7 +70,7 @@ nav ul li a {
 .content .trade {
     display: inline-block;
     margin-top: 30px;
-    background: #ff0b0b;
+    background: rgba(70, 20, 158);
     color: #fff;
     text-decoration: none;
     padding: 15px 30px;
@@ -90,7 +90,7 @@ nav ul li a {
     align-items: center;
     font-size: 14px;
     margin: 0 15px;
-    color: #ff0b0b;
+    color: rgba(70, 20, 158);
     border: 1px solid #fff;
     padding: 20px 30px;
     border-radius: 8px;
@@ -111,7 +111,7 @@ footer p {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #ff0b0b;
+    background-color: rgba(70, 20, 158);
     color: white;
     font-weight: bolder;
     text-align: center;
@@ -133,7 +133,7 @@ footer p {
 }
 
 .errorContainer>p {
-    background: rgb(30, 30, 211);
+    background: rgba(70, 20, 158);
     font-size: 20px;
     padding: 20px;
     height: auto;

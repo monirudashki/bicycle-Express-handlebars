@@ -2,15 +2,15 @@ const authController = require("express").Router();
 const jwt = require("jsonwebtoken");
 const { register, login } = require("../services/authServise");
 const validator = require('validator');
+const { isGuest } = require('../middlewares/guards');
 
-
-authController.get("/login", (req, res) => {
+authController.get("/login", isGuest(), (req, res) => {
   res.render("login", {
     title: "Login",
   });
 });
 
-authController.post("/login", async (req, res) => {
+authController.post("/login",  isGuest(),async (req, res) => {
   const email = req.body.email.trim().toLowerCase();
   const password = req.body.password.trim();
   try {
@@ -28,13 +28,13 @@ authController.post("/login", async (req, res) => {
   }
 });
 
-authController.get("/register", (req, res) => {
+authController.get("/register", isGuest(), (req, res) => {
   res.render("register", {
     title: "Register",
   });
 });
 
-authController.post("/register", async (req, res) => {
+authController.post("/register", isGuest(), async (req, res) => {
   const username = req.body.username.trim().toLowerCase();
   const email = req.body.email.trim().toLowerCase();
   const password = req.body.password.trim();
@@ -51,22 +51,21 @@ authController.post("/register", async (req, res) => {
     if (password != rePass) {
        errors.push("Passwords do not match!");
     }
-
-    if(errors.length > 0) {
-      throw errors;
-    } 
-
-    const result = await register(
+    let result;
+    
+    if(errors.length == 0 ) {
+      result = await register(
       username,
       email,
       password,
       errors
-    );
-
+     );
+    }
+    console.log(errors);
     if(errors.length > 0) {
       throw errors;
     }
-    
+
     attachToken(req, res, result);
     res.redirect("/");
   } catch (error) { 

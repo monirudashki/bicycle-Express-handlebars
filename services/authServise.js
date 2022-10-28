@@ -3,8 +3,9 @@ const User = require('../models/User');
 
 async function register(username , email, password , errors) {
     const existingUsername = await User.findOne({username}).collation({ locale: 'en' , strength: 2});
+    console.log(existingUsername);
     if(existingUsername) {
-        errors.push(`Username is taken!`);;
+        return errors.push(`Username is taken!`);;
     };
 
     const existingEmail = await User.findOne({email}).collation({ locale: 'en' , strength: 2});

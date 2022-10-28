@@ -1,0 +1,71 @@
+{==} - change database in mongoDb , and create models ( user , course) 
+
+{==} = middleware
+-userNavigation
+
+{==} - Register page
+-links
+-layout
+=get
+-post 
+-service
+
+{==} - Login Page
+-links
+-layout
+=get
+-post 
+-service
+
+{==} - Logout Page
+-get
+
+{==} = Create Page
+-links
+-layout
+-get
+-post 
+-service
+
+{==} - Home page
+-correct courses by guest user 
+-links
+-layout
+-get
+-(service)
+
+{==} = Details Page
+-links
+-layout
+=get
+-service
+
+{} = Edit Page
+-links
+-layout
+=get
+-post 
+-service
+
+{} = Delete Page
+-links
+-get
+
+{} = Order bicycle
+-links
+service
+
+{} = profile Page
+-link
+-layout
+-service
+-get
+
+{} = Security Requirements
+
+{} = Validation Errors
+-Register
+-Login
+-Create
+-Edit
+

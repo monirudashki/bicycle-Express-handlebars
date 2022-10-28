@@ -1,5 +1,5 @@
 main {
-    padding-top: 30px;
+    padding-top: 20px;
 }
 
 .crypto-market h1 {
@@ -9,19 +9,19 @@ main {
 }
 
 .crypto-market h1 span {
-    color: #ff960b;
+    color:  rgba(70, 20, 158);
 }
 
 .offer-list {
-    border-top: 4px solid #ff960b;
-    border-bottom: 4px solid #ff960b;
-    border-radius: 5px;
+    /* border-top: 4px solid #ff960b; */
+    /* border-bottom: 4px solid #ff960b; */
+    /* border-radius: 5px; */
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.20),
         0 2px 10px 0 rgba(0, 0, 0, 0.20);
     background-color: rgba(71, 20, 158, 0.1);
     width: auto;
     height: 400px;
-    margin-top: 100px;
+    margin-top: 20px;
     overflow-y: scroll;
 }
 
@@ -42,22 +42,22 @@ main {
 
 .crypto-market .coin {
     display: inline-block;
-    width: 400px;
+    width: 520px;
     height: 200px;
     margin-top: 30px;
     margin-left: 20px;
     margin-bottom: 20px;
     margin-right: 10px;
     border: 2px solid rgba(169, 152, 198, 0.781);
-    border-radius: 30px;
+    /* border-radius: 30px; */
     background-color: rgba(41, 11, 93, 0.633);
 }
 
 .crypto-market .coin-img img {
     float: left;
-    border: 2px solid rgba(169, 152, 198, 0.781);
-    border-radius: 50%;
-    width: 140px;
+    /* border: 2px solid rgba(169, 152, 198, 0.781);
+    border-radius: 50%; */
+    width: 180px;
     height: 120px;
     margin: 20px;
 }

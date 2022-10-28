@@ -1,0 +1,35 @@
+<main>
+        <section id="details-info">
+            <h1>Details</h1>
+            <div class="coin-image">
+                <img src="{{bicycle.imageUrl}}">
+            </div>
+
+            <div class="coin-info">
+                <div class="coin-text">
+                    <h1 id="name">{{bicycle.name}}</h1>
+                    <h3 id="type">Type: {{bicycle.type}}</h3>
+                    <p id="price"><span>Price: ${{bicycle.price}}</span></p>
+                    <p id="condition"><span>Condition: {{bicycle.condition}}</span></p>
+
+                    <p id="description">{{bicycle.description}}</p>
+                <p>Every offers of user <a href="/profile">here</a></p>
+                </div>
+                <div class="product-btn">
+                    {{#if bicycle.isOwner}}
+                    <div class="author">
+                        <a href="/bicycles/{{bicycle._id}}/edit" class="btn-edit">Edit</a>
+                        <a href="/bicycles/{{bicycle._id}}/delete" class="btn-delete">Delete</a>
+                    </div>
+                    {{else}}
+                        {{#if bicycle.isBuy}}
+                        <p class="buy-message">You already bought this bicycle.</p>
+                        {{else}}
+                        <a href="/bicycle/{{bicycle._id}}/buy" class="btn-buy">Buy</a>
+                        {{/if}}
+                    {{/if}}
+                </div>
+            </div>
+
+        </section>
+</main>

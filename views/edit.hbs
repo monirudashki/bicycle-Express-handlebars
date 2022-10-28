@@ -1,0 +1,29 @@
+<main>
+        <section id="edit-container">
+            <div class="edit-container-info">
+                <h1>Edit Announcement</h1>
+                <form action="/bicycles/{{bicycle._id}}/edit" method="post">
+                    <label>Name:</label>
+                    <input type="text" id="name" name="name" value="{{bicycle.name}}">
+                    <select id="type" name="type">
+                        <option value="Road">Road</option>
+                        <option value="MTB">MTB</option>
+                        <option value="Downhill">Downhill</option>
+                    </select>
+                    <label>Price:</label>
+                    <input type="number" id="price" name="price" value="{{bicycle.price}}">
+                    <label>Image:</label>
+                    <input type="text" id="image" name="imageUrl" value="{{bicycle.imageUrl}}">
+                    <label>Description:</label>
+                    <textarea name="description"
+                        id="description">{{bicycle.description}}</textarea>
+                    <label>condition:</label>
+                    <select id="condition" name="condition">
+                        <option value="new">new</option>
+                        <option value="used">used</option>
+                    </select>
+                    <input type="submit" id="btn" value="EDIT"></input>
+                </form>
+            </div>
+        </section>
+</main>

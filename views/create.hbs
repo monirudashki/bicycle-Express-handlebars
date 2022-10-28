@@ -1,0 +1,29 @@
+<main>
+        <section id="create-container">
+            <div class="create-container-info">
+                <h4>Post your Bicycle to sell</h4>
+                <form action="/create" method="post">
+                    <label>Name:</label>
+                    <input type="text" id="name" name="name" placeholder="bicycle name" value="{{body.name}}">
+                    <label>Type:</label>
+                    <select id="type" name="type">
+                        <option value="Road">Road</option>
+                        <option value="MTB">MTB</option>
+                        <option value="Downhill">Downhill</option>
+                    </select>
+                    <label>Price: $</label>
+                    <input type="number" id="price" name="price" placeholder="price in dollars" value="{{body.price}}">
+                    <label>Image:</label>
+                    <input type="text" id="image" name="imageUrl" placeholder="http://..." value="{{body.imageUrl}}">
+                    <label>Description:</label>
+                    <textarea id="description" name="description" placeholder="Introduce your bicycle(min 10 characters)">{{body.description}}</textarea>
+                    <label>Condition:</label>
+                    <select id="condition" name="condition">
+                        <option value="new">new</option>
+                        <option value="used">used</option>
+                    </select>
+                    <input type="submit" id="btn" value="Publish Bicycle"></input>
+                </form>
+            </div>
+        </section>
+ </main>
