@@ -40,26 +40,42 @@
 =get
 -service
 
-{} = Edit Page
+{==} = Edit Page
 -links
 -layout
 =get
 -post 
 -service
 
-{} = Delete Page
+{==} = Delete Page
 -links
 -get
 
-{} = Order bicycle
+{==} = Order bicycle
 -links
 service
 
-{} = profile Page
+{==} = profile Page
 -link
 -layout
 -service
 -get
+
+{==} = search
+link
+layout
+service
+get
+
+{==} = card
+link
+layout
+service
+get
+
+[] - Pagination
+
+[] - Accesoares
 
 {} = Security Requirements
 

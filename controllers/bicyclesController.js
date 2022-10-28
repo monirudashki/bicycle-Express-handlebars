@@ -1,4 +1,4 @@
-const { getBicycleById, updateBicycle, deleteBicycleById } = require('../services/bicycleService');
+const { getBicycleById, updateBicycle, deleteBicycleById, buyBicycle } = require('../services/bicycleService');
 
 const bicyclesController = require('express').Router();
 
@@ -8,10 +8,9 @@ bicyclesController.get('/:id/details', async (req , res) => {
     
      if(bicycle.owner == req.user.id) {
         bicycle.isOwner = true;
-     }
-    //  } else if(bicycle.usersBuying.map(b => b.toString()).includes(req.user.id)) {
-    //     crypto.isBuy = true;
-    //  }
+      } else if(bicycle.usersBuying.map(b => b.toString()).includes(req.user.id)) {
+        bicycle.isBuy = true;
+      }
 
      res.render('details' , {
         title: "Details page",
@@ -116,6 +115,19 @@ bicyclesController.get('/:id/delete' , async (req , res) => {
     await deleteBicycleById(req.params.id);
     res.redirect('/catalog');
 });
+
+bicyclesController.get('/:id/buy' , async (req , res) => {
+    const bicycleId = req.params.id;
+    const bicycle = await getBicycleById(bicycleId);
+    const userId = req.user.id
+    
+    if(bicycle.owner == userId) {
+       return res.redirect('/catalog');
+    }
+  
+    await buyBicycle(bicycleId , userId);
+    res.redirect(`/bicycles/${bicycleId}/details`);
+})
 
 
 

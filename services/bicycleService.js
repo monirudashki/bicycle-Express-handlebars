@@ -52,18 +52,33 @@ async function deleteBicycleById(bicycleId) {
     return await Bicycle.findByIdAndRemove(bicycleId);
 }
 
-// async function buyCrypto(cryptoId , userId) {
-//     const crypto = await Crypto.findById(cryptoId);
+async function buyBicycle(bicycleId , userId) {
+    const bicycle = await Bicycle.findById(bicycleId);
 
-//     crypto.usersBuyCrypto.push(userId);
-//     await crypto.save();
-// }
+    bicycle.usersBuying.push(userId);
+    await bicycle.save();
+};
 
-// async function searchCrypto(searchName , payment) {
-//     if (searchName) {
-//         return (Crypto.find({ name: {$regex: searchName, $options: 'i'} }).lean());
-//     }
-// }
+async function getMyBicycles(userId) {
+    return await Bicycle.find({ owner: userId}).lean();
+}
+
+async function searchBicycle(searchName , searchPrice , searchCondition) {
+    if (searchName) {
+        return await (Bicycle.find({ name: {$regex: searchName, $options: 'i'} }).lean());
+    }
+    
+    if(searchPrice) {
+        return (await (Bicycle.find({})).lean()).filter(x => x.price < searchPrice);
+    }
+    if(searchCondition) {
+        return await (Bicycle.find( {condition: searchCondition} )).lean();
+    }
+}
+
+async function getMyOrderedBicycles(userId) {
+    return await (Bicycle.find({ usersBuying: userId})).lean();
+}
 
 module.exports = {
     getAllBicycles,
@@ -71,5 +86,9 @@ module.exports = {
     createBicycle,
     getAllType,
     updateBicycle,
-    deleteBicycleById
+    deleteBicycleById,
+    buyBicycle,
+    getMyBicycles,
+    searchBicycle,
+    getMyOrderedBicycles
 }
