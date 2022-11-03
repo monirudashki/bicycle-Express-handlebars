@@ -9,6 +9,12 @@
                         <p>Email: </p>
                         <p>{{user.email}}</p>
                     </div>
+                    {{#if user.phone}}
+                    <div class="flex">
+                        <p>Phone: </p>
+                        <p>{{user.phone}}</p>
+                    </div>
+                    {{/if}}
                 </div>
 </section>
 <section class="crypto-market">

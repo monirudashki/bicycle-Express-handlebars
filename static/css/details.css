@@ -84,6 +84,11 @@ main {
     margin-bottom: 15px;
 }
 
+.author p {
+    margin-left: 60px;
+    font-size: 35px;
+}
+
 .btn-delete {
     margin-left: 60px;
 }

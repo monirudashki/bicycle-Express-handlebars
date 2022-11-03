@@ -13,7 +13,13 @@ searchController.post('/' , async (req , res) => {
     const price = req.body.price;
     const condition = req.body.condition;
 
-    const matches = await searchBicycle(name , price , condition);
+    let matches = await searchBicycle(name);
+
+    if(price) {
+        matches = matches.filter(x => x.price < price);
+    }
+
+    matches = matches.filter(bike => bike.condition == condition);
   
     res.render('search' , {
         title: "Search Page",

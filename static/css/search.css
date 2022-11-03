@@ -21,7 +21,7 @@ main {
 
 .search-form {
     display: inline;
-    width: 500px;
+    width: 550px;
     height: 40px;
     background: #444;
     background: rgba(0, 0, 0, .2);
@@ -47,6 +47,8 @@ select {
 }
 
 .search-form button {
+    display: block;
+    margin: auto;
     position: relative;
     padding: 0;
     cursor: pointer;

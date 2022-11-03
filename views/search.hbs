@@ -4,18 +4,12 @@
 
             <form class="search-form" action="/search" method="post">
                 <input type="text" class="search-coin" name="name" placeholder="Search by name..." value="{{body.name}}">
-                <button type="submit" class="btn-search">Search</button>
-            </form>
-            <form class="search-form" action="/search" method="post">
-                <input type="number" class="search-coin" name="price" placeholder="price until..." value="{{body.price}}">
-                <button type="submit" class="btn-search">Search</button>   
-            </form>
-            <form class="search-form" action="/search" method="post">
-                <select id="condition" name="condition" value="{{body.condition}}">
+                <input type="number" class="search-coin" name="price" placeholder="price until..." value="{{body.price}}">  
+                <select id="condition" class="search-coin" name="condition" value="{{body.condition}}">
                     <option value="new">new</option>
                     <option value="used">used</option>
-                </select>
-                <button type="submit" class="btn-search">Search</button>   
+                </select>  
+                <button type="submit" class="btn-search">Search</button>
             </form>
             {{#if matches}}
             <div class="search-result">

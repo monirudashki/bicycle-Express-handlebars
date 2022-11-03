@@ -49,7 +49,12 @@ async function login(email, password) {
     }
 };
 
+async function getUser(userId) {
+    return await User.findById(userId);
+}
+
 module.exports = {
     login,
-    register
+    register,
+    getUser
 }

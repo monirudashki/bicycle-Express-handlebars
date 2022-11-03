@@ -1,3 +1,4 @@
+const { getUser } = require('../services/authServise');
 const { getBicycleById, updateBicycle, deleteBicycleById, buyBicycle } = require('../services/bicycleService');
 
 const bicyclesController = require('express').Router();
@@ -111,6 +112,13 @@ bicyclesController.get('/:id/delete' , async (req , res) => {
     if(bicycle.owner != userId) {
         return res.redirect('/auth/login');
      }
+
+    const userProfile = await getUser(bicycle.owner.toString());
+    const index = userProfile.bicycles.indexOf(req.params.id.toString());
+
+    userProfile.bicycles.splice(index, 1);
+
+    await userProfile.save();
 
     await deleteBicycleById(req.params.id);
     res.redirect('/catalog');

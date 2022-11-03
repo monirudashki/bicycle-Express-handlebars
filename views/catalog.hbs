@@ -13,4 +13,14 @@
             </div>
             {{/if}}
         </section>
+
+        <div class="author">
+            {{#if isNotFirstPage}}
+                <a href="/catalog/previous?page={{page}}&limit=4" class="btn-edit">Previous</a>
+            {{/if}}
+                <p>{{page}}/{{lastPage}}</p>
+            {{#if isNotLastPage}}    
+                <a href="/catalog/next?page={{page}}&limit=4" class="btn-delete">Next</a>
+            {{/if}}
+        </div>
 </main>

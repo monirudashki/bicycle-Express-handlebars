@@ -63,16 +63,11 @@ async function getMyBicycles(userId) {
     return await Bicycle.find({ owner: userId}).lean();
 }
 
-async function searchBicycle(searchName , searchPrice , searchCondition) {
-    if (searchName) {
-        return await (Bicycle.find({ name: {$regex: searchName, $options: 'i'} }).lean());
-    }
-    
-    if(searchPrice) {
-        return (await (Bicycle.find({})).lean()).filter(x => x.price < searchPrice);
-    }
-    if(searchCondition) {
-        return await (Bicycle.find( {condition: searchCondition} )).lean();
+async function searchBicycle(searchName) {
+    if(searchName) {
+       return await (Bicycle.find({ name: {$regex: searchName, $options: 'i'} }).lean());
+    } else {
+       return await Bicycle.find().lean();
     }
 }
 
